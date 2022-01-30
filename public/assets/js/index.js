@@ -1,8 +1,8 @@
-let $noteTitle;
-let $noteText;
-let $saveNoteBtn;
-let $newNoteBtn;
-let $noteList;
+let noteTitle;
+let noteText;
+let saveNoteBtn;
+let newNoteBtn;
+let noteList;
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
