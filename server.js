@@ -10,27 +10,22 @@ const mainPath = path.join(__dirname, '/public')
 //Set up Express server
 const app = express();
 
-
-
 // + Port
 const PORT = process.env.PORT || 4400;
 
-
-// handling parsing data
-// parse incoming string or array data
+// Handling parsing data
+// Parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
-// parse incoming JSON data
+// Parse incoming JSON data
 app.use(express.json());
 app.use(express.static("public"))
-////////Route
 
-
-//API get request for notes.html
+//Get request for notes.html
 app.get("/notes", function (req, res) {
     res.sendFile(path.join(mainPath, "./notes.html"));
 });
 
-
+//API get request
 app.get("/api/notes", function (req, res) {
     res.sendFile(path.join(db, "db.json"))
     return res.body
@@ -42,11 +37,6 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(mainPath, "./index.html"));
 
 });
-
-
-
-
-
 
 //API POST
 app.post('/api/notes', function (req, res) {
@@ -63,7 +53,7 @@ app.post('/api/notes', function (req, res) {
     res.json(savedNotes);
 })
 
-
+/////Delete note from api 
 app.delete('/api/notes/:id', function (req, res) {
 
     //read data 
@@ -86,9 +76,6 @@ app.delete('/api/notes/:id', function (req, res) {
     return;
 
 });
-
-
-
 
 //Listener 
 app.listen(PORT, () => {
