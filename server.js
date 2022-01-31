@@ -4,9 +4,10 @@ const express = require('express');
 const fs = require('fs');
 
 //Path 
- const db = path.join(__dirname, './db')
- const mainPath = path.join(__dirname,'./public')
-//Set up Express server
+ const db = path.join(__dirname, '/db')
+ const mainPath = path.join(__dirname,'/public')
+
+ //Set up Express server
 const app = express();
 
 
@@ -23,15 +24,25 @@ app.use(express.json());
 app.use(express.static("public"))
 ////////Route
 
-//HTMl get request for index.html 
-app.get("*", function (req, res){
-    res.sendFile(path.join(mainPath, "index.html"));
-});
 
 //API get request for notes.html
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(mainPath, "notes.html"));
+    res.sendFile(path.join(mainPath, "./notes.html"));
 });
+
+
+app.get("/api/notes", function(req, res) {
+    res.sendFile(path.join(db, "db.json"))
+    return res.body
+
+})
+
+//HTMl get request for index.html 
+app.get("*", function (req, res){
+    res.sendFile(path.join(mainPath, "./index.html"));
+    
+});
+
 
 
 
