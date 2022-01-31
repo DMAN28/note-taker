@@ -4,10 +4,6 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-// activeNote is used to keep track of the note in the textarea
-let activeNote = {};
-
-//
 
 
 if (window.location.pathname === '/notes') {
@@ -27,6 +23,10 @@ const show = (elem) => {
 const hide = (elem) => {
   elem.style.display = 'none';
 };
+
+
+// activeNote is used to keep track of the note in the textarea
+let activeNote = {};
 
 
 
@@ -180,7 +180,7 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
-  newNoteBtn.addEventListener('click', handleNewNoteView);
+  newNoteBtn.addEventListener('keyup', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }

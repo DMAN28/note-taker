@@ -4,10 +4,10 @@ const express = require('express');
 const fs = require('fs');
 
 //Path 
- const db = path.join(__dirname, '/db')
- const mainPath = path.join(__dirname,'/public')
+const db = path.join(__dirname, '/db')
+const mainPath = path.join(__dirname, '/public')
 
- //Set up Express server
+//Set up Express server
 const app = express();
 
 
@@ -31,16 +31,16 @@ app.get("/notes", function (req, res) {
 });
 
 
-app.get("/api/notes", function(req, res) {
+app.get("/api/notes", function (req, res) {
     res.sendFile(path.join(db, "db.json"))
     return res.body
 
 })
 
 //HTMl get request for index.html 
-app.get("*", function (req, res){
+app.get("*", function (req, res) {
     res.sendFile(path.join(mainPath, "./index.html"));
-    
+
 });
 
 
@@ -50,41 +50,42 @@ app.get("*", function (req, res){
 
 //API POST
 app.post('/api/notes', function (req, res) {
-   let savedNotes = JSON.parse(fs.readFileSync('./db/db.json',"utf8"));
-   let newNote = req.body; 
+    let savedNotes = JSON.parse(fs.readFileSync('./db/db.json', "utf8"));
+    let newNote = req.body;
 
-   let uniqueId = (savedNotes.length).toString();
-   newNote.id = uniqueId;
-   savedNotes.push(newNote);
+    let uniqueId = (savedNotes.length).toString();
+    newNote.id = uniqueId;
+    savedNotes.push(newNote);
 
 
-   fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes))
-   
-   res.json(savedNotes);
+    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes))
+
+    res.json(savedNotes);
 })
 
 
-app.delete('/api/notes/:id', function(req, res) {
+app.delete('/api/notes/:id', function (req, res) {
 
-//read data 
-let savedNotes = json.parse(fs.readFileSync('./db/db.json', 'utf8'));
-let noteID = req.params.id;
-let newID = 0;
+    //read data 
+    var notes = JSON.parse(fs.readFileSync(path.join(__dirname, './db/db.json')));
+    var id = req.params.id;
+    var newID = 0;
 
-savedNotes = savedNotes.filter(currentNote =>{
+    notes = notes.filter(currentNote => {
 
-    return currentNote.id != noteID; 
-})
+        return currentNote.id != id;
+    })
 
-for(currentNote of savedNotes){
-    currentNote.id = newID.toString();
-    newID++;
-}
+    for (currentNote of notes) {
+        currentNote.id = newID.toString();
+        newID++;
+    }
 
-fs.writeFileSync('../../db/db.json', JSON.stringify(savedNotes));
-return res.json(savedNotes);
+    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes));
+    res.json(notes);
+    return;
 
-  });
+});
 
 
 
