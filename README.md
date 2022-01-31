@@ -3,7 +3,7 @@
   https://github.com/DMAN28/note-taker
   
   # Description: 
-  The goal of this project was to create an  application that can create :memo:. It also has the ability to store and retrive those notes. Then deploying the application live via Heroku.
+  The goal of this project was to create an  application that can create notes :memo: also giving the user the ability to store and retrive those notes. Then deploying the application live via Heroku.
   # Table of Contents
   *[Installation](#installation)
  
