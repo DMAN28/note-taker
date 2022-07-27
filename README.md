@@ -1,6 +1,6 @@
   # Note Taker 
   
-  https://github.com/DMAN28/note-taker
+
   ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -14,7 +14,8 @@
 The goal of this project was to create an application that can create notes 📝 also giving the user the ability to store and retrieve those notes. Then deploying the application live via Heroku.
 ### Preview
 
-<img width="336" alt="2" src="https://user-images.githubusercontent.com/93042669/181158594-7c3f7016-6fe0-47ad-bd79-d82a11f94834.png">
+![Untitled](https://user-images.githubusercontent.com/93042669/181160753-c0879b63-7700-4e22-abe7-c449b83c616d.jpg)
+![Untitled](https://user-images.githubusercontent.com/93042669/181160541-6b0c113c-e002-427c-925a-d194af4cc695.jpg)
 
 This application is deployed at 
 
