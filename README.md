@@ -34,7 +34,7 @@ This application is deployed at
 
 Simply open on a web browser and enjoy
 
-https://shekel-stack-app.herokuapp.com/
+https://note-t8kr.herokuapp.com/
 
 ## Usage
 
